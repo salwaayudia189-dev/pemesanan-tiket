@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pesan tiket kapal online untuk perjalanan cepat dan aman antara Pelabuhan Kayangan dan Pelabuhan Pototano.">
+    <title>Tiket Kapal Penyebrangan Kayangan - Pototano | Mudah & Praktis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Kayangan<span class="highlight">Pototano</span></a>
+            <ul class="nav-links">
+                <li><a href="#booking">Pesan Tiket</a></li>
+                <li><a href="#riwayat">Riwayat</a></li>
+                <li><a href="#keunggulan">Keunggulan</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="headline">Tiket Kapal Penyebrangan <br> <span class="gradient-text">Kayangan - Pototano</span>
+                <br> Mudah & Praktis!
+            </h1>
+            <p class="subheadline">Pesan tiket kapal online untuk perjalanan cepat dan aman antara Pelabuhan Kayangan
+                dan Pelabuhan Pototano. Nikmati perjalanan dengan kapal kami yang nyaman dan aman, setiap hari!</p>
+            <a href="#booking" class="btn btn-primary">Pesan Tiket Sekarang</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="booking" class="booking-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Pemesanan Tiket</h2>
+                    <p>Lengkapi data perjalanan Anda</p>
+                </div>
+
+                <div class="booking-card glass-panel">
+                    <form id="booking-form">
+                        <!-- Step 1: Schedule -->
+                        <div class="form-step active" data-step="1">
+                            <h3 data-step-number="1">Pilih Jadwal & Rute</h3>
+                            <div class="form-group">
+                                <label for="route">Rute Penyebrangan</label>
+                                <select id="route" name="route" required>
+                                    <option value="Kayangan -> Pototano" selected>Kayangan ke Pototano</option>
+                                    <option value="Pototano -> Kayangan">Pototano ke Kayangan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="departure-date">Kapan Anda berencana untuk berangkat?</label>
+                                <input type="date" id="departure-date" name="departure-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="departure-time">Pilih Jam Keberangkatan</label>
+                                <select id="departure-time" name="departure-time" required>
+                                    <option value="" disabled selected>-- Pilih Jam --</option>
+                                    <option value="06:00">06:00 WITA</option>
+                                    <option value="08:00">08:00 WITA</option>
+                                    <option value="10:00">10:00 WITA</option>
+                                    <option value="12:00">12:00 WITA</option>
+                                    <option value="14:00">14:00 WITA</option>
+                                    <option value="16:00">16:00 WITA</option>
+                                    <option value="18:00">18:00 WITA</option>
+                                    <option value="20:00">20:00 WITA</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-next" onclick="nextStep(1)">Lanjut: Jenis
+                                Tiket</button>
+                        </div>
+
+                        <!-- Step 2: Ticket Type & Quantity -->
+                        <div class="form-step" data-step="2">
+                            <h3 data-step-number="2">Jenis & Jumlah Tiket</h3>
+                            <div class="ticket-input-group">
+                                <div class="ticket-type">
+                                    <label><i class="fas fa-user"></i> Dewasa <span class="price">Rp 25.000 /
+                                            tiket</span></label>
+                                    <input type="number" id="adult-qty" name="adult-qty" min="0" value="0"
+                                        data-price="20000">
+                                </div>
+                                <div class="ticket-type">
+                                    <label><i class="fas fa-child"></i> Anak <span class="price">Rp 15.000 /
+                                            tiket</span></label>
+                                    <input type="number" id="child-qty" name="child-qty" min="0" value="0"
+                                        data-price="10000">
+                                </div>
+                                <div class="ticket-type">
+                                    <label><i class="fas fa-motorcycle"></i> Motor <span class="price">Rp 45.000 /
+                                            unit</span></label>
+                                    <input type="number" id="motor-qty" name="motor-qty" min="0" value="0"
+                                        data-price="40000">
+                                </div>
+                                <div class="ticket-type">
+                                    <label><i class="fas fa-car-side"></i> Mobil Penumpang <span class="price">Rp
+                                            563.000 / unit</span></label>
+                                    <input type="number" id="car-pax-qty" name="car-pax-qty" min="0" value="0"
+                                        data-price="563000">
+                                </div>
+                                <div class="ticket-type">
+                                    <label><i class="fas fa-truck-pickup"></i> Mobil Pick Up <span class="price">Rp
+                                            553.000 / unit</span></label>
+                                    <input type="number" id="car-pickup-qty" name="car-pickup-qty" min="0" value="0"
+                                        data-price="553000">
+                                </div>
+                                <div class="ticket-type">
+                                    <label><i class="fas fa-truck"></i> Truk Kecil/Sedang <span class="price">Rp
+                                            1.307.000 / unit</span></label>
+                                    <input type="number" id="truck-small-qty" name="truck-small-qty" min="0" value="0"
+                                        data-price="1307000">
+                                </div>
+                                <div class="ticket-type">
+                                    <label><i class="fas fa-truck-moving"></i> Truk Besar & Tronton <span
+                                            class="price">Rp 2.000.000 / unit</span></label>
+                                    <input type="number" id="truck-large-qty" name="truck-large-qty" min="0" value="0"
+                                        data-price="2000000">
+                                </div>
+                            </div>
+                            <div class="price-summary">
+                                <p>Estimasi Total: <strong id="step2-total">Rp 0</strong></p>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Kembali</button>
+                                <button type="button" class="btn btn-next" onclick="nextStep(2)">Lanjut: Data
+                                    Pemesan</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Contact Details -->
+                        <div class="form-step" data-step="3">
+                            <h3 data-step-number="3">Rincian Pemesanan</h3>
+                            <div class="form-group">
+                                <label for="fullname">Nama Pemesan</label>
+                                <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Alamat Email</label>
+                                <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Nomor Telepon</label>
+                                <input type="tel" id="phone" name="phone" placeholder="08123456789" required>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary" onclick="prevStep(3)">Kembali</button>
+                                <button type="button" class="btn btn-next" onclick="nextStep(3)">Lanjut:
+                                    Pembayaran</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Payment -->
+                        <div class="form-step" data-step="4">
+                            <h3 data-step-number="4">Pembayaran</h3>
+                            <div class="summary-box">
+                                <h4>Ringkasan Pesanan</h4>
+                                <ul id="order-summary-list">
+                                    <!-- Populated by JS -->
+                                </ul>
+                                <div class="total-row">
+                                    <span>Total Bayar:</span>
+                                    <span id="final-total" class="total-amount">Rp 0</span>
+                                </div>
+                            </div>
+
+                            <div class="payment-methods">
+                                <h4>Metode Pembayaran</h4>
+                                <div class="payment-option">
+                                    <input type="radio" id="bank" name="payment" value="Bank Transfer" checked>
+                                    <label for="bank"><i class="fas fa-university"></i> Transfer Bank</label>
+                                </div>
+                                <div class="payment-option">
+                                    <input type="radio" id="ewallet" name="payment" value="E-wallet">
+                                    <label for="ewallet"><i class="fas fa-wallet"></i> E-wallet (OVO, GoPay,
+                                        dll)</label>
+                                </div>
+                                <div class="payment-option">
+                                    <input type="radio" id="card" name="payment" value="Credit Card">
+                                    <label for="card"><i class="fas fa-credit-card"></i> Kartu Kredit/Debit</label>
+                                </div>
+                                <div class="payment-option">
+                                    <input type="radio" id="cash" name="payment" value="Cash">
+                                    <label for="cash"><i class="fas fa-money-bill-wave"></i> Tunai (Bayar di
+                                        Loket)</label>
+                                </div>
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary" onclick="prevStep(4)">Kembali</button>
+                                <button type="submit" class="btn btn-primary">Bayar Sekarang</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="riwayat" class="history-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Riwayat Pemesanan</h2>
+                    <p>Tiket yang telah Anda pesan</p>
+                </div>
+                <div id="history-container" class="history-grid">
+                    <p class="empty-state">Belum ada riwayat pemesanan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Notification Section (Initially Hidden) -->
+        <section id="success-notification" class="success-section" style="display: none; padding: 2rem 0;">
+            <div class="container">
+                <div class="form-step active"
+                    style="text-align: center; max-width: 600px; margin: 0 auto; display: block;">
+                    <i class="fas fa-check-circle success-icon" style="font-size: 5rem; margin-bottom: 1rem;"></i>
+                    <h2 style="color: var(--primary-dark); margin-bottom: 1rem;">Pembayaran Berhasil!</h2>
+                    <p style="margin-bottom: 2rem; color: var(--text-muted);">Terima kasih telah memesan. Tiket
+                        elektronik telah diterbitkan.</p>
+
+                    <div class="action-buttons"
+                        style="margin: 20px 0; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                        <button type="button" class="btn" style="background-color: #25D366; color: white;"
+                            onclick="sendToWhatsapp()">
+                            <i class="fab fa-whatsapp"></i> Kirim ke WhatsApp
+                        </button>
+                        <button type="button" class="btn" style="background-color: #EA4335; color: white;"
+                            onclick="sendToEmail()">
+                            <i class="fas fa-envelope"></i> Kirim ke Email
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="resetBooking()">
+                            <i class="fas fa-home"></i> Tutup
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="keunggulan" class="features-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Keunggulan Kami</h2>
+                    <p>Mengapa memilih layanan kami?</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon-box"><i class="fas fa-clock"></i></div>
+                        <h3>Jadwal Fleksibel</h3>
+                        <p>Kapal berangkat setiap hari dengan berbagai pilihan waktu yang dapat disesuaikan dengan
+                            rencana Anda.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-box"><i class="fas fa-tag"></i></div>
+                        <h3>Harga Terjangkau</h3>
+                        <p>Harga tiket yang kompetitif, memberikan nilai terbaik untuk kenyamanan dan keamanan Anda.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Pelayanan Terpercaya</h3>
+                        <p>Kapal dilengkapi fasilitas modern dan kru berpengalaman untuk menjamin keselamatan Anda.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-box"><i class="fas fa-headset"></i></div>
+                        <h3>Layanan Pelanggan</h3>
+                        <p>Tim kami siap membantu 24/7 melalui telepon atau email untuk segala pertanyaan Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>FAQ</h2>
+                    <p>Pertanyaan yang Sering Diajukan</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">Apa yang perlu saya bawa untuk perjalanan? <i
+                                class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Pastikan Anda membawa tiket yang telah dikirimkan ke email, serta identitas diri
+                                (KTP/Passport) saat naik kapal.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Bisakah saya mengubah atau membatalkan tiket saya? <i
+                                class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Pemesanan tiket dapat dibatalkan dengan biaya administrasi sesuai ketentuan yang berlaku.
+                                Hubungi CS untuk bantuan.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Apakah anak di bawah usia 5 tahun dikenakan biaya? <i
+                                class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Anak di bawah usia 5 tahun dapat ikut tanpa biaya tiket (dengan ketentuan tertentu).</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Bagaimana jika kapal dibatalkan karena cuaca buruk? <i
+                                class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Kami akan menghubungi Anda dan memberikan opsi penjadwalan ulang atau pengembalian dana
+                                penuh.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="kontak">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Tentang Kami</h3>
+                <p>Penyedia layanan tiket kapal penyebrangan terpercaya antara Pelabuhan Kayangan dan Poto Tano.
+                    Mengutamakan keselamatan dan kenyamanan.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Hubungi Kami</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>Pelabuhan Kayangan</h4>
+                        <p>Jl. Labuhan Lombok, Kayangan</p>
+                        <p>0376-123456</p>
+                        <p>kayangan@tiketkapal.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Pelabuhan Pototano</h4>
+                        <p>Jl. Raya Poto Tano, Sumbawa</p>
+                        <p>0372-654321</p>
+                        <p>pototano@tiketkapal.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Link Cepat</h3>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Kebijakan Pengembalian Dana</a></li>
+                    <li><a href="#">Syarat dan Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Tiket Kapal Penyebrangan Kayangan - Pototano. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Step 5: Success -->
+    <div class="form-step" data-step="5" style="text-align: center;">
+        <i class="fas fa-check-circle success-icon" style="font-size: 5rem; margin-bottom: 1rem;"></i>
+        <h2 style="color: var(--primary-dark); margin-bottom: 1rem;">Pembayaran Berhasil!</h2>
+        <p style="margin-bottom: 2rem; color: var(--text-muted);">Terima kasih telah memesan. Tiket elektronik telah
+            diterbitkan.</p>
+
+        <div class="action-buttons"
+            style="margin: 20px 0; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <button type="button" class="btn" style="background-color: #25D366; color: white;"
+                onclick="sendToWhatsapp()">
+                <i class="fab fa-whatsapp"></i> Kirim ke WhatsApp
+            </button>
+            <button type="button" class="btn" style="background-color: #EA4335; color: white;" onclick="sendToEmail()">
+                <i class="fas fa-envelope"></i> Kirim ke Email
+            </button>
+            <button type="button" class="btn btn-primary" onclick="resetBooking()">
+                <i class="fas fa-home"></i> Kembali ke Beranda
+            </button>
+        </div>
+    </div>
+    </form>
+    </div>
+    </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
